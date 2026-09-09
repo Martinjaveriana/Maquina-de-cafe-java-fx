@@ -5,6 +5,7 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.example.maquinadecafejavafx.controllers.AzucarController;
 import org.example.maquinadecafejavafx.controllers.PedidoController;
 import org.example.maquinadecafejavafx.controllers.WelcomeController;
 
@@ -30,6 +31,12 @@ public class SceneManager {
         PedidoController pedidoController = new PedidoController(this, context);
         loadScene("/org/example/maquinadecafejavafx/pedido-view.fxml", pedidoController);
         stage.setTitle("Máquina de café - Nuevo pedido");
+    }
+
+    /*MUESTRA LA PANTALLA EN DONDE SE SELECCIONA EL NIVEL DE AZUCAR*/
+    public void showAzucar(){
+        AzucarController azucarController = new AzucarController(this, context);
+        loadScene("/org/example/maquinadecafejavafx/azucar-view.fxml", azucarController);
     }
 
     private void loadScene(String fxml, Object controller) {

@@ -15,6 +15,7 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+        //Inicia el motor grafico de java fx
         launch(args);
     }
 }

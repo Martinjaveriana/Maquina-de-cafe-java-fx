@@ -31,6 +31,7 @@ public class PedidoController {
         RadioButton cafeSeleccionado = (RadioButton) grupoCafe.getSelectedToggle();
         RadioButton tamanoSeleccionado = (RadioButton) grupoTamano.getSelectedToggle();
 
+        /// SE DA UN MENSAJE DE ERROR QUE INDICA EL CAMPO INCOMPLETO
         if (nombre.isEmpty() || apellido.isEmpty()) {
             lblError.setText("Por favor ingresa tu nombre y apellido.");
             return;
@@ -44,9 +45,19 @@ public class PedidoController {
             return;
         }
 
+        //si nada esta vacio se puede seguir a la pantalla de la azucar
+        if (cafeSeleccionado.getText() != null && tamanoSeleccionado.getText() != null && !txtNombre.getText().isEmpty() && !txtApellido.getText().isEmpty()){
+            sceneManager.showAzucar();
+        }
+
         lblError.setText("");
-        // TODO: guardar nombre/apellido/tipoCafe/tamano en el ContextManager
-        // y navegar a la pantalla de nivel de azúcar.
+
+        //Persiste la informacion
+        context.setNombre(nombre);
+        context.setApellido(apellido);
+        context.setTipoDeCafe(cafeSeleccionado.getText());
+        context.setTamano(tamanoSeleccionado.getText());
+
         System.out.printf("Pedido: %s %s -> %s (%s)%n",
                 nombre, apellido, cafeSeleccionado.getText(), tamanoSeleccionado.getText());
     }
