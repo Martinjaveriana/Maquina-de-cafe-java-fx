@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="800.0" prefWidth="1200.0" spacing="16.0" style="-fx-background-color: #f5efe6;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <padding>
+        <Insets bottom="30" left="40" right="40" top="30" />
+    </padding>
+   <children>
+   
+       <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #3c2415;" text="tu pedido:" />
+   
+       <TextField fx:id="txtNombre" maxWidth="280" promptText="Nombre" />
+       <TextField fx:id="txtApellido" maxWidth="280" promptText="Apellido" />
+   
+       <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Tipo de café" />
+       <HBox alignment="CENTER" spacing="16">
+          <children>
+              <RadioButton fx:id="rbNegro" text="Café negro">
+                  <toggleGroup>
+                      <ToggleGroup fx:id="grupoCafe" />
+                  </toggleGroup>
+              </RadioButton>
+              <RadioButton fx:id="rbClaro" text="Café claro" toggleGroup="$grupoCafe" />
+              <RadioButton fx:id="rbCapuchino" text="Capuchino" toggleGroup="$grupoCafe" />
+          </children>
+       </HBox>
+   
+       <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Tamaño" />
+       <HBox alignment="CENTER" spacing="16">
+          <children>
+              <RadioButton fx:id="rbPequeno" text="Pequeño">
+                  <toggleGroup>
+                      <ToggleGroup fx:id="grupoTamano" />
+                  </toggleGroup>
+              </RadioButton>
+              <RadioButton fx:id="rbMediano" text="Mediano" toggleGroup="$grupoTamano" />
+              <RadioButton fx:id="rbGrande" text="Grande" toggleGroup="$grupoTamano" />
+          </children>
+       </HBox>
+   
+       <Label fx:id="lblError" style="-fx-text-fill: #b3261e; -fx-font-size: 12px;" />
+   
+       <HBox alignment="CENTER" spacing="12">
+      <children>
+              <Button onAction="#volver" style="-fx-padding: 8 20;" text="Volver" />
+              <Button onAction="#continuar" style="-fx-background-color: #c98a4b; -fx-text-fill: white; -fx-padding: 8 20;" text="Continuar" />
+      </children>
+       </HBox>
+   </children>
+</VBox>
