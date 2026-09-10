@@ -74,4 +74,14 @@ public class ContextManager {
     public void setTamano(String tamano) {
         this.tamano = tamano;
     }
+
+    public void vaciar(){
+        this.nombre = null;
+        this.apellido = null;
+        this.tipoDeCafe = null;
+        this.nivelAzucar = null;
+        this.tamano = null;
+        this.precio = 0;
+        this.valorIngreado = 0;
+    }
 }

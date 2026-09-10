@@ -35,15 +35,16 @@ public class AzucarController {
     void continuar(ActionEvent event) {
         RadioButton azucarSeleccionado = (RadioButton) grupoAzucar.getSelectedToggle();
         if (azucarSeleccionado != null){
-
+            sceneManager.showRecibo(); 
         } else{
             lblError.setText("Selecciona un nivel de azucar");
         }
     }
 
     @FXML
-    public void volver() {
-        sceneManager.showPedido();
+    public void cancelar() {
+        sceneManager.showWelcome();
+        context.vaciar();
     }
 
 }

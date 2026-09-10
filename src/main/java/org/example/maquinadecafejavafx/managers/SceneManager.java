@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.example.maquinadecafejavafx.controllers.AzucarController;
 import org.example.maquinadecafejavafx.controllers.PedidoController;
+import org.example.maquinadecafejavafx.controllers.ReciboController;
 import org.example.maquinadecafejavafx.controllers.WelcomeController;
 
 public class SceneManager {
@@ -37,6 +38,11 @@ public class SceneManager {
     public void showAzucar(){
         AzucarController azucarController = new AzucarController(this, context);
         loadScene("/org/example/maquinadecafejavafx/azucar-view.fxml", azucarController);
+    }
+
+    public void showRecibo(){
+        ReciboController reciboController = new ReciboController(this, context);
+        loadScene("/org/example/maquinadecafejavafx/recibo-view.fxml", reciboController);
     }
 
     private void loadScene(String fxml, Object controller) {

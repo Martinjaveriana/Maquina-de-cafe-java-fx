@@ -63,7 +63,8 @@ public class PedidoController {
     }
 
     @FXML
-    public void volver() {
+    public void cancelar() {
         sceneManager.showWelcome();
+        context.vaciar();
     }
 }

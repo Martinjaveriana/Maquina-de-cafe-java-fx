@@ -54,7 +54,7 @@
    
        <HBox alignment="CENTER" spacing="12">
       <children>
-              <Button onAction="#volver" style="-fx-padding: 8 20;" text="Volver" />
+              <Button onAction="#cancelar" style="-fx-padding: 8 20;" text="cancelar" />
               <Button onAction="#continuar" style="-fx-background-color: #c98a4b; -fx-text-fill: white; -fx-padding: 8 20;" text="Continuar" />
       </children>
        </HBox>
