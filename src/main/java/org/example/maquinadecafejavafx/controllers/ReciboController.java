@@ -8,13 +8,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import org.example.maquinadecafejavafx.managers.ContextManager;
+import org.example.maquinadecafejavafx.managers.SesionManager;
 import org.example.maquinadecafejavafx.managers.SceneManager;
+import org.example.maquinadecafejavafx.services.PrecioService;
 
 public class ReciboController implements Initializable {
 
     private final SceneManager sceneManager;
-    private final ContextManager context;
+    private final SesionManager sesion;
+    private final PrecioService precioService;
 
     @FXML private Label lblCliente;
     @FXML private Label lblProducto;
@@ -25,17 +27,18 @@ public class ReciboController implements Initializable {
 
     private boolean pagoRealizado = false;
 
-    public ReciboController(SceneManager sceneManager, ContextManager context) {
+    public ReciboController(SceneManager sceneManager, SesionManager sesion, PrecioService precioService) {
         this.sceneManager = sceneManager;
-        this.context = context;
+        this.sesion = sesion;
+        this.precioService = precioService;
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        lblCliente.setText(context.getNombre() + " " + context.getApellido());
-        lblProducto.setText(context.getTipoDeCafe() + " - " + context.getTamano()
-                + " - Azúcar: " + context.getNivelAzucar());
-        lblPrecio.setText("Total a pagar: $" + context.getPrecio());
+        lblCliente.setText(sesion.getNombre() + " " + sesion.getApellido());
+        lblProducto.setText(sesion.getTipoDeCafe() + " - " + sesion.getTamano()
+                + " - Azúcar: " + sesion.getNivelAzucar());
+        lblPrecio.setText("Total a pagar: $" + sesion.getPrecio());
         btnContinuar.setDisable(true);
 
         // Si el cliente cambia el valor después de haber pagado, se vuelve a
@@ -65,14 +68,14 @@ public class ReciboController implements Initializable {
             return;
         }
 
-        if (valorIngresado < context.getPrecio()) {
+        if (valorIngresado < sesion.getPrecio()) {
             mostrarError("El valor ingresado no alcanza. Faltan $"
-                    + (context.getPrecio() - valorIngresado) + ".");
+                    + (sesion.getPrecio() - valorIngresado) + ".");
             return;
         }
 
-        context.setValorIngreado(valorIngresado);
-        int vueltas = valorIngresado - context.getPrecio();
+        sesion.setValorIngreado(valorIngresado);
+        int vueltas = valorIngresado - sesion.getPrecio();
 
         pagoRealizado = true;
         btnContinuar.setDisable(false);
@@ -85,7 +88,7 @@ public class ReciboController implements Initializable {
     @FXML
     private void continuar() {
         // TODO: aquí es donde la máquina entregaría el café y las vueltas.
-        context.vaciar();
+        sesion.vaciar();
         sceneManager.showWelcome();
     }
 

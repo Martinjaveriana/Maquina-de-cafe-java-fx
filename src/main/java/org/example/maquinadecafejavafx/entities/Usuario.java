@@ -1,4 +1,4 @@
-package org.example.maquinadecafejavafx.entitys;
+package org.example.maquinadecafejavafx.entities;
 
 public class Usuario {
     private String nombre;

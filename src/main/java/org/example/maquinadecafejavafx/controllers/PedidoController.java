@@ -5,13 +5,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import org.example.maquinadecafejavafx.managers.ContextManager;
+import org.example.maquinadecafejavafx.managers.SesionManager;
 import org.example.maquinadecafejavafx.managers.SceneManager;
 
 public class PedidoController {
 
     private final SceneManager sceneManager;
-    private final ContextManager context;
+    private final SesionManager sesion;
 
     @FXML private TextField txtNombre;
     @FXML private TextField txtApellido;
@@ -19,9 +19,9 @@ public class PedidoController {
     @FXML private ToggleGroup grupoTamano;
     @FXML private Label lblError;
 
-    public PedidoController(SceneManager sceneManager, ContextManager context) {
+    public PedidoController(SceneManager sceneManager, SesionManager sesion) {
         this.sceneManager = sceneManager;
-        this.context = context;
+        this.sesion = sesion;
     }
 
     @FXML
@@ -53,10 +53,10 @@ public class PedidoController {
         lblError.setText("");
 
         //Persiste la informacion
-        context.setNombre(nombre);
-        context.setApellido(apellido);
-        context.setTipoDeCafe(cafeSeleccionado.getText());
-        context.setTamano(tamanoSeleccionado.getText());
+        sesion.setNombre(nombre);
+        sesion.setApellido(apellido);
+        sesion.setTipoDeCafe(cafeSeleccionado.getText());
+        sesion.setTamano(tamanoSeleccionado.getText());
 
         System.out.printf("Pedido: %s %s -> %s (%s)%n",
                 nombre, apellido, cafeSeleccionado.getText(), tamanoSeleccionado.getText());
@@ -65,6 +65,6 @@ public class PedidoController {
     @FXML
     public void cancelar() {
         sceneManager.showWelcome();
-        context.vaciar();
+        sesion.vaciar();
     }
 }

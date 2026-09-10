@@ -5,13 +5,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
-import org.example.maquinadecafejavafx.managers.ContextManager;
+import org.example.maquinadecafejavafx.managers.SesionManager;
 import org.example.maquinadecafejavafx.managers.SceneManager;
 
 public class AzucarController {
 
     private final SceneManager sceneManager;
-    private final ContextManager context;
+    private final SesionManager sesion;
 
     @FXML
     private RadioButton rbNada;
@@ -26,15 +26,16 @@ public class AzucarController {
     @FXML
     private RadioButton rbMedio;
 
-    public AzucarController(SceneManager sceneManager, ContextManager context) {
+    public AzucarController(SceneManager sceneManager, SesionManager sesion) {
         this.sceneManager = sceneManager;
-        this.context = context;
+        this.sesion = sesion;
     }
 
     @FXML
     void continuar(ActionEvent event) {
         RadioButton azucarSeleccionado = (RadioButton) grupoAzucar.getSelectedToggle();
         if (azucarSeleccionado != null){
+            sesion.setNivelAzucar(azucarSeleccionado.getText());
             sceneManager.showRecibo(); 
         } else{
             lblError.setText("Selecciona un nivel de azucar");
@@ -44,7 +45,7 @@ public class AzucarController {
     @FXML
     public void cancelar() {
         sceneManager.showWelcome();
-        context.vaciar();
+        sesion.vaciar();
     }
 
 }

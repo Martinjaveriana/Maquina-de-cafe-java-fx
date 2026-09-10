@@ -1,87 +1,30 @@
 package org.example.maquinadecafejavafx.managers;
 
+import org.example.maquinadecafejavafx.repositories.PrecioRepository;
+import org.example.maquinadecafejavafx.services.PrecioService;
+
 public class ContextManager {
-    private String nombre;
-    private String apellido;
-    private String tipoDeCafe;
-    private String nivelAzucar;
-    private String tamano;
-    private int precio;
-    private int valorIngreado;
+    private PrecioRepository precioRepository;
+    private PrecioService precioService;
 
-    public ContextManager() {
-        this.nombre = null;
-        this.apellido = null;
-        this.tipoDeCafe = null;
-        this.nivelAzucar = null;
-        this.tamano = null;
-        this.precio = 0;
-        this.valorIngreado = 0;
+    public ContextManager(PrecioRepository precioRepository, PrecioService precioService) {
+        this.precioRepository = precioRepository;
+        this.precioService = precioService;
     }
 
-    public String getNombre() {
-        return nombre;
+    public PrecioRepository getPrecioRepository() {
+        return precioRepository;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setPrecioRepository(PrecioRepository precioRepository) {
+        this.precioRepository = precioRepository;
     }
 
-    public String getApellido() {
-        return apellido;
+    public PrecioService getPrecioService() {
+        return precioService;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String getTipoDeCafe() {
-        return tipoDeCafe;
-    }
-
-    public void setTipoDeCafe(String tipoDeCafe) {
-        this.tipoDeCafe = tipoDeCafe;
-    }
-
-    public String getNivelAzucar() {
-        return nivelAzucar;
-    }
-
-    public void setNivelAzucar(String nivelAzucar) {
-        this.nivelAzucar = nivelAzucar;
-    }
-
-    public int getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(int precio) {
-        this.precio = precio;
-    }
-
-    public int getValorIngreado() {
-        return valorIngreado;
-    }
-
-    public void setValorIngreado(int valorIngreado) {
-        this.valorIngreado = valorIngreado;
-    }
-
-    public String getTamano() {
-        return tamano;
-    }
-
-    public void setTamano(String tamano) {
-        this.tamano = tamano;
-    }
-
-    public void vaciar(){
-        this.nombre = null;
-        this.apellido = null;
-        this.tipoDeCafe = null;
-        this.nivelAzucar = null;
-        this.tamano = null;
-        this.precio = 0;
-        this.valorIngreado = 0;
+    public void setPrecioService(PrecioService precioService) {
+        this.precioService = precioService;
     }
 }

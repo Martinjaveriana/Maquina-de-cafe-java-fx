@@ -1,0 +1,11 @@
+[
+  { "nombre": "Café negro", "tamano": "Pequeño", "precio": 1500 },
+  { "nombre": "Café negro", "tamano": "Mediano", "precio": 1800 },
+  { "nombre": "Café negro", "tamano": "Grande", "precio": 2100 },
+  { "nombre": "Café claro", "tamano": "Pequeño", "precio": 1800 },
+  { "nombre": "Café claro", "tamano": "Mediano", "precio": 2100 },
+  { "nombre": "Café claro", "tamano": "Grande", "precio": 2400 },
+  { "nombre": "Capuchino", "tamano": "Pequeño", "precio": 2500 },
+  { "nombre": "Capuchino", "tamano": "Mediano", "precio": 2800 },
+  { "nombre": "Capuchino", "tamano": "Grande", "precio": 3100 }
+]
