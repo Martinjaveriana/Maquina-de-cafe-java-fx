@@ -14,6 +14,12 @@ import org.example.maquinadecafejavafx.services.PrecioService;
 
 public class ReciboController implements Initializable {
 
+    /*
+     *
+     * ATRIBUTOS
+     *
+     * */
+
     private final SceneManager sceneManager;
     private final SesionManager sesion;
     private final PrecioService precioService;
@@ -35,9 +41,12 @@ public class ReciboController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        sesion.setPrecio(precioService.calcularPrecio(sesion.getTipoDeCafe(), sesion.getTamano()));
+
         lblCliente.setText(sesion.getNombre() + " " + sesion.getApellido());
         lblProducto.setText(sesion.getTipoDeCafe() + " - " + sesion.getTamano()
-                + " - Azúcar: " + sesion.getNivelAzucar());
+                + " - Azúcar: " + sesion.getAzucar());
         lblPrecio.setText("Total a pagar: $" + sesion.getPrecio());
         btnContinuar.setDisable(true);
 
@@ -74,7 +83,7 @@ public class ReciboController implements Initializable {
             return;
         }
 
-        sesion.setValorIngreado(valorIngresado);
+        sesion.setValorIngresado(valorIngresado);
         int vueltas = valorIngresado - sesion.getPrecio();
 
         pagoRealizado = true;

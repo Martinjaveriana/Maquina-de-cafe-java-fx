@@ -1,87 +1,103 @@
 package org.example.maquinadecafejavafx.managers;
 
+import org.example.maquinadecafejavafx.entities.Producto;
+import org.example.maquinadecafejavafx.entities.Usuario;
+
 public class SesionManager {
-    private String nombre;
-    private String apellido;
-    private String tipoDeCafe;
-    private String nivelAzucar;
-    private String tamano;
-    private int precio;
-    private int valorIngreado;
+
+    /*
+    *
+    * ATRIBUTOS
+    *
+    * */
+
+    private Usuario usuario;
+    private Producto producto;
+    private int valorIngresado;
 
     public SesionManager() {
-        this.nombre = null;
-        this.apellido = null;
-        this.tipoDeCafe = null;
-        this.nivelAzucar = null;
-        this.tamano = null;
-        this.precio = 0;
-        this.valorIngreado = 0;
+        this.usuario = null;
+        this.producto = null;
+        this.valorIngresado = 0;
     }
 
-    public String getNombre() {
-        return nombre;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
-    public String getApellido() {
-        return apellido;
+    public Producto getProducto() {
+        return producto;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setProducto(Producto producto) {
+        this.producto = producto;
     }
 
-    public String getTipoDeCafe() {
-        return tipoDeCafe;
+    public int getValorIngresado() {
+        return valorIngresado;
     }
 
-    public void setTipoDeCafe(String tipoDeCafe) {
-        this.tipoDeCafe = tipoDeCafe;
+    public void setValorIngresado(int valorIngresado) {
+        this.valorIngresado = valorIngresado;
     }
 
-    public String getNivelAzucar() {
-        return nivelAzucar;
+    public String getAzucar() {
+        return this.getProducto().getNivelAzucar();
     }
 
-    public void setNivelAzucar(String nivelAzucar) {
-        this.nivelAzucar = nivelAzucar;
+    public void setAzucar(String azucar) {
+        this.getProducto().setNivelAzucar(azucar);
     }
 
     public int getPrecio() {
-        return precio;
+        return this.getProducto().getPrecio();
     }
 
     public void setPrecio(int precio) {
-        this.precio = precio;
+        this.getProducto().setPrecio(precio);
     }
 
-    public int getValorIngreado() {
-        return valorIngreado;
+    public String getTipoDeCafe() {
+        return this.getProducto().getNombre();
     }
 
-    public void setValorIngreado(int valorIngreado) {
-        this.valorIngreado = valorIngreado;
+    public void setTipoDeCafe(String tipoCafe) {
+        this.getProducto().setNombre(tipoCafe);
     }
 
     public String getTamano() {
-        return tamano;
+        return this.getProducto().getTamano();
     }
 
     public void setTamano(String tamano) {
-        this.tamano = tamano;
+        this.getProducto().setTamano(tamano);
     }
 
+    public String getNombre() {
+        return this.getUsuario().getNombre();
+    }
+
+    public void setNombre(String nombre) {
+        this.getUsuario().setNombre(nombre);
+    }
+
+    public String getApellido() {
+        return this.getUsuario().getApellido();
+    }
+
+    public void setApellido(String apellido) {
+        this.getUsuario().setApellido(apellido);
+    }
+
+
+
     public void vaciar(){
-        this.nombre = null;
-        this.apellido = null;
-        this.tipoDeCafe = null;
-        this.nivelAzucar = null;
-        this.tamano = null;
-        this.precio = 0;
-        this.valorIngreado = 0;
+        this.usuario = null;
+        this.producto = null;
+        this.valorIngresado = 0;
     }
 }

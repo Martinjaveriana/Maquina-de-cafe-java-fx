@@ -5,6 +5,12 @@ import org.example.maquinadecafejavafx.repositories.PrecioRepository;
 
 public class PrecioService {
 
+    /*
+     *
+     * ATRIBUTOS
+     *
+     * */
+
     private final PrecioRepository precioRepository;
 
     public PrecioService(PrecioRepository precioRepository) {

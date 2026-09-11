@@ -4,6 +4,13 @@ import org.example.maquinadecafejavafx.repositories.PrecioRepository;
 import org.example.maquinadecafejavafx.services.PrecioService;
 
 public class ContextManager {
+
+    /*
+     *
+     * ATRIBUTOS
+     *
+     * */
+
     private PrecioRepository precioRepository;
     private PrecioService precioService;
 

@@ -10,6 +10,12 @@ import org.example.maquinadecafejavafx.managers.SceneManager;
 
 public class AzucarController {
 
+    /*
+     *
+     * ATRIBUTOS
+     *
+     * */
+
     private final SceneManager sceneManager;
     private final SesionManager sesion;
 
@@ -35,7 +41,7 @@ public class AzucarController {
     void continuar(ActionEvent event) {
         RadioButton azucarSeleccionado = (RadioButton) grupoAzucar.getSelectedToggle();
         if (azucarSeleccionado != null){
-            sesion.setNivelAzucar(azucarSeleccionado.getText());
+            sesion.setAzucar(azucarSeleccionado.getText());
             sceneManager.showRecibo(); 
         } else{
             lblError.setText("Selecciona un nivel de azucar");

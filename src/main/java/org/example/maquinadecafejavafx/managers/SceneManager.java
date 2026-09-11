@@ -12,6 +12,12 @@ import org.example.maquinadecafejavafx.controllers.WelcomeController;
 
 public class SceneManager {
 
+    /*
+     *
+     * ATRIBUTOS
+     *
+     * */
+
     private final Stage stage;
     private final SesionManager sesion;
     private final ContextManager context;

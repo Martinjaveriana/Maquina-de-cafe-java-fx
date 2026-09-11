@@ -3,6 +3,13 @@ package org.example.maquinadecafejavafx.entities;
 import java.util.List;
 
 public class Menu {
+
+    /*
+     *
+     * ATRIBUTOS
+     *
+     * */
+
     private List<Producto> productos;
 
     public Menu(List<Producto> productos) {

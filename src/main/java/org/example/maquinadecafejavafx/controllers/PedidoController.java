@@ -5,10 +5,18 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import org.example.maquinadecafejavafx.entities.Producto;
+import org.example.maquinadecafejavafx.entities.Usuario;
 import org.example.maquinadecafejavafx.managers.SesionManager;
 import org.example.maquinadecafejavafx.managers.SceneManager;
 
 public class PedidoController {
+
+    /*
+     *
+     * ATRIBUTOS
+     *
+     * */
 
     private final SceneManager sceneManager;
     private final SesionManager sesion;
@@ -53,11 +61,17 @@ public class PedidoController {
         lblError.setText("");
 
         //Persiste la informacion
-        sesion.setNombre(nombre);
-        sesion.setApellido(apellido);
-        sesion.setTipoDeCafe(cafeSeleccionado.getText());
-        sesion.setTamano(tamanoSeleccionado.getText());
+        // le ingreso la info que tengo por el momento
 
+        //Producto
+        Producto producto = new Producto(cafeSeleccionado.getText(), 0, tamanoSeleccionado.getText(), "");
+        sesion.setProducto(producto);
+
+        //Usuario
+        Usuario usuario = new Usuario(nombre, apellido);
+        sesion.setUsuario(usuario);
+
+        //Muestro la info
         System.out.printf("Pedido: %s %s -> %s (%s)%n",
                 nombre, apellido, cafeSeleccionado.getText(), tamanoSeleccionado.getText());
     }
